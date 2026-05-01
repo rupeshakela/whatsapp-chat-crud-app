@@ -21,26 +21,6 @@ async function main() {
   await mongoose.connect(process.env.MONGO_URL);
 }
 
-
-////this just for understanding 
-
-// let chat1=new chat({
-//     from:"rupesh",
-//     to:"sima",
-//     msg:"mummy ko call do",
-//     created_at:new Date()
-// });
-
-// chat1.save().then(res=>{
-//     // console.log(res);
-// })
-// .catch(err=>{
-//     console.log(err);
-// });
-
-
-//Index Route
-
 app.get("/chats",async(req,res)=>{
     let chats=await chat.find();
     res.render("index.ejs",{chats});
